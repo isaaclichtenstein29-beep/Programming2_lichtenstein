@@ -15,15 +15,20 @@
 #Would you like to begin?
 
 #supplies
-Money= chr(128184)
-supplies= {(Money, 1000), ("Food", 0), ("Horse", 2),("Antidotes", 1)}
+Money = chr(128184)
+Food = chr(127828)
+Horses = chr(128052)
+Antidotes = chr(128138)
+supplies = [(Money, 1000), (Food, 0), (Horses, 2),(Antidotes, 1)]
 print(supplies)
 #What are the names of your characters?
-name1= input("What is the name of your main character")
-name2= input("What is the name of your second character")
-name3= input("What is the name of your third character")
-name4= input("What is the name of your fourth character")
-name5= input("What is the name of your fifth character")
+name1 = input("What is the name of your main character")
+name2 = input("What is the name of your second character")
+name3 = input("What is the name of your third character")
+name4 = input("What is the name of your fourth character")
+name5 = input("What is the name of your fifth character")
+
+characters = [name1, name2, name3, name4, name5]
 #open shop
 
 #supplies
