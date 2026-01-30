@@ -1,5 +1,25 @@
 
 #class 1
+class Inventory:
+    def __init__(self, items None):
+        if items is None:
+            items = []
+        self.items = items
+    def add_item(self, item):
+        self.items.append(item)
+        print(f"Added {item.name} to inventory.")
+    def remove_item(self, item):
+        if item in self.items:
+            self.items.remove(item)
+            print(f"removed {item.name} from inventory.")
+        else:
+            print(f"{item.name} not found in inventory.")
+
+    def display_inventory(self):
+        pass
+    
+        
+
 class Entity:
     def __init__(self, health, level, xp, size, race, strength):
         self.health = health
@@ -8,16 +28,31 @@ class Entity:
         self.size = size
         self.race = race
         self.strength = strength
-def level_up(self):
-    requirement += (self.level * 2)
-    if self.xp >= requirement:
-        self.level += 1
-def take_damage(self, amount):
-    self.health -= amount
-    if self.health <= 0:
-        return "You died!"
+        self.inventory = Inventory()
+    def level_up(self):
+        requirement += (self.level * 2)
+        if self.xp >= requirement:
+            self.level += 1
+    def take_damage(self, amount):
+        self.health -= amount
+        if self.health <= 0:
+            return "You died!"
     def describe(self):
-        return f"You see a {self.race} that is {self.size} and has {self.strength} strength and is level {self.level} and has {self.health} hp"
+            return f"You see a {self.race} that is {self.size} and has {self.strength} strength and is level {self.level} and has {self.health} hp"
+    
+    def attack(self, weapon, target): 
+            if weapon.durability > 0:
+                weapon.durability -= 1
+                print(f"The {Weapon} has {weapon.durability} durability left.")
+            else:
+                 print ("The weapon broke.") 
+    def add_weapon_to_inventory(self, weapon):
+        self.inventory.add_item(weapon)
+        print (f"The {self.race} equips {weapon.name}.")
+            
+    def remove_weapon_from_inventory(self, weapon):
+        self.inventory.remove_item(weapon)
+        print(f"The self.race unequips {weapon.name}.")
 
 class Weapon:
     def __init__(self, damage, durability, size, rarity, special):
@@ -26,14 +61,11 @@ class Weapon:
         self.size = size
         self.rarity = rarity
         self.special = special
-    def attack(self):
-        if self.durability >= 1:
-            self.durability -= 1
-        if self.durability <=0:
-            return "Your weapon broke!"
-        return self.damage
-
-
+    
+        
+    
+        
+            
 
 #class 3
 
@@ -41,12 +73,13 @@ class Weapon:
 class main():
     hero = Entity(20, 1, 0, "large", "human", 1)
     nubian_goat = Entity(15, 1, 0, "tiny", "goat", 1)
-    kicking_boots = Weapon(5, 10, "20.5", "mythical", "roundhouse")
+    kicking_boots = Weapon(5, 10, 20.5, "mythical", "roundhouse")
     hooves = Weapon(1, 15, "tiny", "common", "ram")
 
-print(f"Behold your mighty hero!!! {main.hero.describe()}")
-print(f"{main.nubian_goat.describe()}")
-print(main.hero.describe())
-
+    print(f"Behold your mighty hero!!! {hero.describe()}")
+    print(f"{nubian_goat.describe()}")
+    nubian_goat.attack(hooves, hero)
+        
+    
 if __name__ == "__main__":
     main()
