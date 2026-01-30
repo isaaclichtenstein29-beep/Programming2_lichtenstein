@@ -1,5 +1,25 @@
 
 #class 1
+class Inventory:
+    def __init__(self, items = None):
+        if items is None:
+            items = []
+        self.items = items
+    def add_item(self, item):
+        self.items.append(item)
+        print(f"Added {item.name} to inventory.")
+    def remove_item(self, item):
+        if item in self.items:
+            self.items.remove(item)
+            print(f"removed {item.name} from inventory.")
+        else:
+            print(f"{item.name} not found in inventory.")
+
+    def display_inventory(self):
+        pass
+    
+        
+
 class Entity:
     def __init__(self, health, level, xp, size, race, strength):
         self.health = health
